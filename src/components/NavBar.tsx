@@ -2,12 +2,6 @@ import chaoslogo from "../static/img/chaoslogo.png"
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-const logoFont = {
-    color:"crimson",
-    fontSize: "40px",
-    fontFace: "comic-sans"
-}
-
 export default function NavBar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="black" variant="dark" sticky="top" margin-right="25px">
