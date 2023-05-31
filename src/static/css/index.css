@@ -51,17 +51,16 @@ nav li {
   color: white;
 }
 
-.nav-item a {
-  color: rgb(255, 255, 255);
+.nav-item a:hover {
+  color: crimson;
   text-decoration: none;
+}
+a:hover {
+  color: crimson;
 }
 
 nav-link a:hover {
   color: crimson;
-}
-
-.nav-item a:hover {
-  color: rgb(255, 4, 4);
 }
 
 .nav {
@@ -73,6 +72,7 @@ nav-link a:hover {
   background-color: black;
   text-align: left;
   align-content: space-between;
+  margin-right: 25px;
 }
 
 button {
