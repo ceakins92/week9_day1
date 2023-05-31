@@ -9,7 +9,7 @@ const cardText = {
 }
 
 const buttonText = {
-    color:"white",
+    color:"yellow",
     fontSize: "18px"
 }
 
