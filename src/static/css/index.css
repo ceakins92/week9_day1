@@ -51,20 +51,8 @@ nav li {
   color: white;
 }
 
-.nav-item a:hover {
-  color: crimson;
-  text-decoration: none;
-}
 a:hover {
   color: crimson;
-}
-
-nav-link a:hover {
-  color: crimson;
-}
-
-.nav {
-  background-color: black;
 }
 
 .NavBar {

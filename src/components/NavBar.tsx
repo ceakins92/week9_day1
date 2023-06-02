@@ -1,8 +1,14 @@
+
 import chaoslogo from "../static/img/chaoslogo.png"
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { AuthContext } from "../Contexts/UserProvider";
+import { useContext } from "react";
+import NavLink from "react-bootstrap/esm/NavLink";
 
 export default function NavBar() {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   return (
     <Navbar collapseOnSelect expand="lg" bg="black" variant="dark" sticky="top" margin-right="25px">
       
@@ -20,13 +26,19 @@ export default function NavBar() {
           </Nav>
           
           <Nav>
-            <Nav.Link className="nav-item" href="#"> Sign-In  </Nav.Link>
-            <Nav.Link className="nav-item" eventKey={2} href="#">|   Register  |       
-            </Nav.Link>
+          {user.token ? (
+            <>
+            <Nav.Item><Nav.Link className="nav-item" as={NavLink} to={`/user/${user.username}`}>My Page</Nav.Link></Nav.Item>
+            <Nav.Item><Nav.Link className="nav-item" as={NavLink} to="/logout">Logout</Nav.Link></Nav.Item>
+            </>
+            ) : (
+            <> 
+            <Nav.Item><Nav.Link className="nav-item" as={NavLink} to="/loginpage">Sign in</Nav.Link></Nav.Item>
+            <Nav.Link className="nav-item" eventKey={2} href="#">Register   </Nav.Link>
+            </>
+      )}
           </Nav>
-          
         </Navbar.Collapse>
-      
     </Navbar>
   );
 }

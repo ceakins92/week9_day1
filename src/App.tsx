@@ -1,14 +1,13 @@
 import NavBarMain from "./components/NavBar"
-import { Header } from "./components/Header"
+import Header from "./components/Header"
+import AllPosts from "./components/AllPosts"
 
 function App() {
 
   return (
   <>
   <NavBarMain/>
-  <Header/>
-  <div>Hello</div>
-  
+  <Header Card AllPosts/>
   </>
   )
  }

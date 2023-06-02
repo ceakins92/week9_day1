@@ -1,7 +1,13 @@
-import { Card } from "react-bootstrap"
+import { Button, Card, Container } from "react-bootstrap"
 import hero1 from "../static/img/hero1.png"
 import logo_transp from "../static/img/logo_transp.png"
-import Button from 'react-bootstrap/Button';
+import MakePost from "./MakePost";
+
+interface HeaderProps {
+    Card: JSX.Element | JSX.Element[];
+    makepost: boolean,
+    children: JSX.Element | JSX.Element[];
+  }
 
 const cardText = {
     color:"white",
@@ -10,11 +16,12 @@ const cardText = {
 
 const buttonText = {
     color:"yellow",
-    fontSize: "18px"
+    fontSize: "18px",
 }
-
-export const Header = () => {
+  
+export default function Header({ makepost, children }: HeaderProps){
     return (
+    <>
         <Card className="title.card bg-dark text-white">
             <Card.Img src={hero1} alt="Comic Chaos"/>
             <Card.ImgOverlay>
@@ -23,8 +30,13 @@ export const Header = () => {
                     community | knowledge base | market<br/><br/>
                     <Button variant="outline-danger" style={buttonText}>Sign In</Button>{' '}  
                     <Button variant="outline-danger" style={buttonText}>Register</Button>{' '}
-                </Card.Text>
+            </Card.Text>
             </Card.ImgOverlay>
         </Card>
+        <Container>
+            { makepost && <MakePost/> }
+            { children }
+        </Container>
+    </>    
     )
 }
