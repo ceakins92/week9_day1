@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
-import Header from '../components/Header';
+
 import Post from '../components/Post';
 import { Postable } from '../components/Post';
 
@@ -27,7 +27,7 @@ export default function PostsPage({endpoint,heading}:{endpoint:string,heading:st
       
       
         {postsArray.length === 0 ? (
-          <Spinner animation="border" />
+          <Spinner animation="grow" />
         ) : (
           <>
           <h3>{ heading }</h3>
