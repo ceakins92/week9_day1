@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
-
 import Post from '../components/Post';
 import { Postable } from '../components/Post';
+import Body from '../components/Body';
 
 const base_api_url = import.meta.env.VITE_APP_BASE_API
 
@@ -25,7 +25,7 @@ export default function PostsPage({endpoint,heading}:{endpoint:string,heading:st
   return (
     <>
       
-      
+      <Body makepost header={ false }>
         {postsArray.length === 0 ? (
           <Spinner animation="grow" />
         ) : (
@@ -36,7 +36,7 @@ export default function PostsPage({endpoint,heading}:{endpoint:string,heading:st
             })}
           </>
         )}
-      
+      </Body>
     </>
   );
 }

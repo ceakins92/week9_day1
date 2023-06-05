@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef } from 'react'
-
+import Body from '../components/Body'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Contexts/UserProvider';
 
@@ -40,7 +40,7 @@ export default function LoginPage() {
   
   return (
 
-    <>
+    <Body makepost={false} header={ false }>
       <h4>Login</h4>
       <form onSubmit={handleLoginForm}>
         <label>Username:<br/>
@@ -51,7 +51,7 @@ export default function LoginPage() {
         </label><br/><br/>
         <button>Sign In</button>
       </form>
-    </> 
+    </Body> 
     
   );
 }

@@ -1,13 +1,6 @@
-import { Button, Card, Container } from "react-bootstrap"
+import { Button, Card } from "react-bootstrap"
 import hero1 from "../static/img/hero1.png"
 import logo_transp from "../static/img/logo_transp.png"
-import MakePost from "./MakePost";
-
-interface HeaderProps {
-    Card: JSX.Element | JSX.Element[];
-    makepost: boolean,
-    children: JSX.Element | JSX.Element[];
-  }
 
 const cardText = {
     color:"white",
@@ -19,7 +12,7 @@ const buttonText = {
     fontSize: "18px",
 }
   
-export default function Header({ makepost, children }: HeaderProps){
+export default function Header(){
     return (
     <>
         <Card className="title.card bg-dark text-white">
@@ -33,10 +26,7 @@ export default function Header({ makepost, children }: HeaderProps){
             </Card.Text>
             </Card.ImgOverlay>
         </Card>
-        <Container>
-            { makepost && <MakePost/> }
-            { children }
-        </Container>
+       
     </>    
     )
 }

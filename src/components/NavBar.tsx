@@ -3,11 +3,22 @@ import chaoslogo from "../static/img/chaoslogo.png"
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { AuthContext } from "../Contexts/UserProvider";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import NavLink from "react-bootstrap/esm/NavLink";
 
 export default function NavBar() {
-  const { user } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem('token');
+    if (storedToken && !user.token) {
+      setUser({
+        username: localStorage.getItem('username') || '',
+        token: storedToken,
+        loggedIn: true,
+      });
+    }
+  });
   console.log(user);
   return (
     <Navbar collapseOnSelect expand="lg" bg="black" variant="dark" sticky="top" margin-right="25px">
@@ -34,7 +45,7 @@ export default function NavBar() {
             ) : (
             <> 
             <Nav.Item><Nav.Link className="nav-item" as={NavLink} to="/loginpage">Sign in</Nav.Link></Nav.Item>
-            <Nav.Link className="nav-item" eventKey={2} href="#">Register   </Nav.Link>
+            <Nav.Item><Nav.Link className="nav-item" as={NavLink} to="/register">Register   </Nav.Link></Nav.Item>
             </>
       )}
           </Nav>
