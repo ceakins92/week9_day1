@@ -32,7 +32,7 @@ export default function MakePost() {
     return (
         <form onSubmit={handlePostForm}>
             <label>Post:<br/>
-            <input type="text" ref={postField} placeholder="What's on your mind? "/>
+            <input type="text" ref={postField} placeholder="Speak to the World! "/>
             </label><br/><br/>
             <button>Post</button>
         </form>

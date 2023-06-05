@@ -27,17 +27,17 @@ export default function NavBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-          <Nav.Link className="nav-item" href="#">  Home  </Nav.Link>
+          <Nav.Link className="nav-item" as ={NavLink} to ="/">  Home  </Nav.Link>
             <Nav.Link className="nav-item" href="#">  About  </Nav.Link>
             <Nav.Link className="nav-item" href="#">  Browse Comics  </Nav.Link>
             <Nav.Link className="nav-item" href="#">  Search Comics  </Nav.Link>
-            <Nav.Link className="nav-item" href="#">  Community  </Nav.Link>
+            <Nav.Link className="nav-item" as={NavLink} to ="/posts">  Community  </Nav.Link>
             <Nav.Link className="nav-item" href="#">  CoD  </Nav.Link>
             <Nav.Link className="nav-item" href="#">  Market  </Nav.Link>
           </Nav>
           
           <Nav>
-          {user.token ? (
+          {user.token || localStorage.getItem('token') ? (
             <>
             <Nav.Item><Nav.Link className="nav-item" as={NavLink} to={`/user/${user.username}`}>My Page</Nav.Link></Nav.Item>
             <Nav.Item><Nav.Link className="nav-item" as={NavLink} to="/logout">Logout</Nav.Link></Nav.Item>
